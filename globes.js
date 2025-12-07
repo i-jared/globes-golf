@@ -39,6 +39,7 @@ export default function globes(container, options = {}) {
   
   function resize() {
     const rect = container.getBoundingClientRect();
+    if (rect.width === 0 || rect.height === 0) return; // Skip if dimensions invalid during resize
     const dpr = window.devicePixelRatio || 1;
     canvas.width = rect.width * dpr;
     canvas.height = rect.height * dpr;
