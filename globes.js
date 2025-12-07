@@ -42,7 +42,7 @@ export default function globes(container, options = {}) {
     const dpr = window.devicePixelRatio || 1;
     canvas.width = rect.width * dpr;
     canvas.height = rect.height * dpr;
-    ctx.scale(dpr, dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0); // Reset and set transform (prevents cumulative scaling)
     scale = Math.min(rect.width, rect.height) / (MAX_ORBIT * 2);
   }
   
@@ -80,7 +80,7 @@ export default function globes(container, options = {}) {
         ctx.arc(cx + obj.x, cy + obj.y, obj.r, 0, Math.PI * 2);
         ctx.fillStyle = fill;
         ctx.fill();
-        ctx.lineWidth = Math.max(1, Math.min(3, obj.r * 0.1));
+        ctx.lineWidth = 1;
         ctx.strokeStyle = stroke;
         ctx.stroke();
       }
