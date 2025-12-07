@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Globes Golf Demo</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; background: #0a0a0f; }
+    #container { width: 100%; height: 100%; }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+  <script type="module">
+    import globes from './globes.js';
+    globes(document.getElementById('container'), {
+      fill: '#e0f0ff',
+      stroke: '#4080c0',
+      ring: 'rgba(100,180,255,0.6)'
+    });
+  </script>
+</body>
+</html>
+
